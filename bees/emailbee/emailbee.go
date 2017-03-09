@@ -23,7 +23,6 @@ package emailbee
 
 import (
 	"net"
-
 	"strconv"
 
 	"github.com/muesli/beehive/bees"
@@ -55,9 +54,8 @@ func (mod *EmailBee) Action(action bees.Action) []bees.Placeholder {
 		m.SetHeader("From", mod.username)
 		m.SetHeader("To", to)
 		m.SetHeader("Subject", subject)
-		if plainText != "" {
-			m.SetBody("text/plain", plainText)
-		}
+		m.SetBody("text/plain", plainText)
+
 		if htmlText != "" {
 			m.SetBody("text/html", htmlText)
 		}
